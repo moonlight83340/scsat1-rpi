@@ -1,4 +1,4 @@
-name: Yocto Build
+name: Zero Build
 
 on:
   push:
@@ -26,10 +26,8 @@ jobs:
           git clone -b kirkstone https://github.com/rauc/meta-rauc.git
           git clone -b kirkstone https://github.com/rauc/meta-rauc-community.git
 
-      - name: Initialize Yocto build environment
+      - name: Initialize Yocto build environment and build image
         run: |
-          TEMPLATECONF=$(readlink -f ./meta-scsat1-rpi/conf) source ./poky/oe-init-build-env
-
-      - name: Build Yocto image
-        run: |
+          TEMPLATECONF=$(readlink -f ./meta-scsat1-rpi/conf) source ./poky/oe-init-build-env build
           bitbake core-image-minimal
+        shell: bash
