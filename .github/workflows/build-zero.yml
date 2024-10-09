@@ -2,11 +2,7 @@ name: Yocto Build
 
 on:
   push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
 
 jobs:
   build:
@@ -37,10 +33,3 @@ jobs:
       - name: Build Yocto image
         run: |
           bitbake core-image-minimal
-
-      - name: Upload build artifacts
-        if: success()
-        uses: actions/upload-artifact@v3
-        with:
-          name: yocto-image
-          path: build/tmp/deploy/images/
