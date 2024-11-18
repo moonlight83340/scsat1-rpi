@@ -8,7 +8,6 @@ SRC_URI = "file://main.c \
            file://router.c \
            file://temp.c \
            file://camera.c \
-           file://yuyv_to_rgb.h \
            file://cspd.h \
            file://Makefile \
            file://LICENSE"
