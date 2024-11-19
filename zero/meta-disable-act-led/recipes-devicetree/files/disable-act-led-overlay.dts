@@ -1,0 +1,20 @@
+/*
+ * Device tree overlay for disable-act-led
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target = <&leds>;
+        __overlay__ {
+            led-act {
+                default-state = "off";
+                linux,default-trigger = "none";
+            };
+        };
+    };
+};
